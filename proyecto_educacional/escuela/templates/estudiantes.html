@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Estudiantes</title>
+</head>
+
+<body>
+    <h1>Lista de Estudiantes</h1>
+    {% if estudiantes%}
+    <ul>
+        {% for estudiante in estudiantes %}
+        <li>{{ estudiante.nombre }} - {{ estudiante.edad }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No hay estudiantes registrados.</p>
+    {% endif %}
+</body>
+
+</html>
