@@ -160,7 +160,7 @@ Educativo y de Aprendizaje Personal
     </body>
 
     </html>
-16. proyecto_educacional/settings.py 
+16. proyecto_educacional/urls.py 
     ```bash 
     from django.contrib import admin
     from django.urls import path
