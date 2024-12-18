@@ -85,11 +85,16 @@ Educativo y de Aprendizaje Personal
     }
 11. Instalacion de psycopg2: es un adaptador de base de datos para Python que permite interactuar con bases de datos PostgreSQL
     ```bash
-    pip install pyscopg2 
+    pip install psycopg2 
+
+12. Guardo las dependencias me voy un cd .. mas atras del proyecto principal con el objetivo que quede al lado del README.md
+    ```bash
+    cd ..
+    pip freeze > requirements.txt
 
 # Creación del Modelo 
 
-12. en escuela/models.py
+13. en escuela/models.py
     ```bash
     from django.db import models
 
@@ -111,14 +116,14 @@ Educativo y de Aprendizaje Personal
         def __str__(self):
             return self.nombre
 
-13. Ejecuta las migraciones para aplicar estos cambios a la base de datos:
+14. Ejecuta las migraciones para aplicar estos cambios a la base de datos:
     ```bash 
     python manage.py makemigrations
     python manage.py migrate
 
 # Creación de Vistas
 
-14. escuela/views.py 
+15. escuela/views.py 
     ```bash 
     from django.shortcuts import render
     from django.db import connection
@@ -141,7 +146,7 @@ Educativo y de Aprendizaje Personal
         estudiantes = Estudiante.objects.raw('SELECT * FROM escuela_estudiante WHERE edad >= %s', [18])
         return render(request, 'estudiantes.html', {'estudiantes': estudiantes})
 
-15. creamos en escuela/templates/estudiantes.html 
+16. creamos en escuela/templates/estudiantes.html 
     ```bash 
     <!DOCTYPE html>
     <html>
@@ -160,7 +165,7 @@ Educativo y de Aprendizaje Personal
     </body>
 
     </html>
-16. proyecto_educacional/urls.py 
+17. proyecto_educacional/urls.py 
     ```bash 
     from django.contrib import admin
     from django.urls import path
@@ -173,17 +178,17 @@ Educativo y de Aprendizaje Personal
     ]
 # Creación de Superusuario
 
-17. Creacion del superusuario
+18. Creacion del superusuario
     ```bash	
     python manage.py createsuperuser
 
-18. Se Crea un contraseña solo para fines pedagogicos y para ir testeando el modelo 
+19. Se Crea un contraseña solo para fines pedagogicos y para ir testeando el modelo 
     ```bash	
     admin
     admin1234
     y
 
-19. En escuela/admin.py 
+20. En escuela/admin.py 
     ```bash	
     from django.contrib import admin
     from .models import Curso, Estudiante
